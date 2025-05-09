@@ -2,203 +2,202 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Logovo Nazarchika</title>
+    <title>LOGOVO NAZARCHIKA</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <style>
-        html, body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Orbitron', sans-serif;
-            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        html, body {
             height: 100%;
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
             background-size: cover;
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
+            cursor: none;
         }
 
         .overlay {
-            position: relative;
-            background: rgba(0, 0, 0, 0.7);
-            height: 100%;
+            position: absolute;
             width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            text-align: center;
             z-index: 2;
+            color: white;
+            text-align: center;
         }
 
         h1 {
-            font-size: 4em;
-            color: white;
-            background: linear-gradient(90deg, red, yellow, red);
-            background-size: 200% auto;
+            font-size: 5em;
+            text-shadow: 0 0 25px red;
+            background: linear-gradient(45deg, yellow, red, yellow);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shimmer 4s linear infinite;
-            margin-bottom: 30px;
-            text-shadow: 0 0 15px red;
+            animation: blink 1s infinite alternate;
         }
 
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0.6; }
         }
 
-        .button-container {
-            display: flex;
-            gap: 40px;
-            flex-direction: row;
-            z-index: 3;
-        }
-
-        .btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 20px 40px;
-            font-size: 1.5em;
-            border: 2px solid #fff;
-            border-radius: 10px;
-            text-decoration: none;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.9);
-            color: black;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px yellow;
-        }
-
-        .btn::after {
-            content: "";
+        .text-fly {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 0, 0.3);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s;
-            z-index: -1;
-        }
-
-        .btn:hover::after {
-            transform: scaleX(1);
-        }
-
-        .countdown {
+            top: -10%;
             font-size: 2em;
-            margin-top: 50px;
+            white-space: nowrap;
             color: yellow;
-            text-shadow: 0 0 15px red;
+            animation: flyText 10s linear infinite;
+        }
+
+        @keyframes flyText {
+            0% { top: 100%; left: -30%; transform: rotate(-20deg); }
+            100% { top: -10%; left: 120%; transform: rotate(20deg); }
+        }
+
+        .laser {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: red;
+            animation: shoot 2s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% { left: 0; }
+            100% { left: 100vw; }
+        }
+
+        .custom-cursor {
+            width: 32px;
+            height: 32px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Windows_10_cursor.png') no-repeat center;
+            background-size: contain;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .flashing-box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: flash 0.3s infinite alternate;
+            position: absolute;
+        }
+
+        @keyframes flash {
+            0% { background: red; box-shadow: 0 0 10px yellow; }
+            100% { background: yellow; box-shadow: 0 0 20px red; }
         }
 
         .footer {
             position: absolute;
-            bottom: 10px;
+            bottom: 0;
             width: 100%;
-            text-align: center;
-            font-size: 1em;
             color: white;
-            opacity: 0.8;
-            z-index: 2;
+            text-align: center;
+            font-size: 1.2em;
+            z-index: 3;
         }
 
-        /* Частинки */
         .particles {
             position: absolute;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
             z-index: 1;
         }
 
         .particle {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: yellow;
             border-radius: 50%;
-            animation: floatUp 12s linear infinite;
+            animation: float 8s linear infinite;
             opacity: 0.4;
         }
 
-        @keyframes floatUp {
+        @keyframes float {
             0% {
-                transform: translateY(100vh) scale(0.5);
+                transform: translateY(100vh);
                 opacity: 0;
             }
             50% {
                 opacity: 1;
             }
             100% {
-                transform: translateY(-10vh) scale(1.2);
+                transform: translateY(-10vh);
                 opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <h1>🇨🇳 Logovo Nazarchika</h1>
 
-        <div class="button-container">
-            <button class="btn" onclick="location.href='https://discord.gg/V5tNASJY'">🔥 Join Discord</button>
-            <button class="btn" onclick="location.href='minecraft://127.0.0.1'">🎮 Enter Server</button>
-            <button class="btn" onclick="location.href='https://example.com/client.zip'">⬇️ Download Client</button>
-        </div>
+<div class="overlay">
+    <h1>🇨🇳 LOGOVO NAZARCHIKA 🇨🇳</h1>
+    <p>🌐 Discord: <a href="https://discord.gg/V5tNASJY" target="_blank" style="color: #ff0;">Натисни сюди</a></p>
+</div>
 
-        <div class="countdown" id="countdown">Залишилось: 00:00</div>
-    </div>
+<!-- Фонові частинки -->
+<div class="particles" id="particles"></div>
 
-    <div class="particles">
-        <script>
-            for (let i = 0; i < 50; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'particle';
-                dot.style.left = Math.random() * 100 + 'vw';
-                dot.style.animationDelay = (Math.random() * 12) + 's';
-                dot.style.width = dot.style.height = (Math.random() * 6 + 3) + 'px';
-                document.querySelector('.particles').appendChild(dot);
-            }
-        </script>
-    </div>
+<!-- Літаючі тексти -->
+<div class="text-fly" style="animation-delay: 0s;">РАСТ 🔥</div>
+<div class="text-fly" style="animation-delay: 2s; color: red;">ДИСКОРД 📢</div>
+<div class="text-fly" style="animation-delay: 4s; color: white;">LOGOVO 🇨🇳</div>
 
-    <div class="footer">🚀 Зроблено Пашом Адвокатом © 2025</div>
+<!-- Лазери -->
+<div class="laser" style="top: 20%;"></div>
+<div class="laser" style="top: 60%; animation-delay: 1s;"></div>
 
-    <!-- Музика -->
-    <audio autoplay loop>
-        <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
-        Ваш браузер не підтримує відтворення аудіо.
-    </audio>
+<!-- Спалахи -->
+<div class="flashing-box" style="top: 20%; left: 10%;"></div>
+<div class="flashing-box" style="top: 60%; left: 80%;"></div>
 
-    <!-- Таймер для запуску сервера -->
-    <script>
-        // Таймер
-        let countdownDate = new Date("May 10, 2025 00:00:00").getTime();
-        let timer = setInterval(function() {
-            let now = new Date().getTime();
-            let distance = countdownDate - now;
+<!-- Кастомний курсор -->
+<div class="custom-cursor" id="cursor"></div>
 
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<!-- Музика -->
+<audio autoplay loop>
+    <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
+</audio>
 
-            document.getElementById("countdown").innerHTML = "Залишилось: " + days + "д " + hours + "г " + minutes + "м " + seconds + "с ";
+<div class="footer">
+    Зроблено ✨ Пашом Адвокатом ✨ — Discord Rust Server
+</div>
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "Сервер відкрито!";
-            }
-        }, 1000);
-    </script>
+<!-- JS: курсор + частинки -->
+<script>
+    // Курсор
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
+    });
+
+    // Частинки
+    const particleContainer = document.getElementById('particles');
+    for (let i = 0; i < 100; i++) {
+        let p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.animationDelay = (Math.random() * 8) + 's';
+        p.style.width = p.style.height = (Math.random() * 5 + 2) + 'px';
+        particleContainer.appendChild(p);
+    }
+</script>
+
 </body>
 </html>
