@@ -27,31 +27,34 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
+            position: relative;
         }
 
         h1 {
             font-size: 4em;
-            margin-bottom: 20px;
-            animation: glow 2s infinite alternate;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, red, yellow, red);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 2s infinite linear;
         }
 
-        p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
+        @keyframes shimmer {
+            0% { background-position: -500px; }
+            100% { background-position: 500px; }
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px red, 0 0 20px yellow;
-            }
-            to {
-                text-shadow: 0 0 20px yellow, 0 0 30px red;
-            }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .discord-link {
+        .btn {
             background-color: #7289DA;
-            padding: 15px 30px;
+            padding: 15px 25px;
             font-size: 1.2em;
             border: none;
             border-radius: 10px;
@@ -60,7 +63,7 @@
             transition: transform 0.3s, background-color 0.3s;
         }
 
-        .discord-link:hover {
+        .btn:hover {
             background-color: #5b6eae;
             transform: scale(1.1);
         }
@@ -74,16 +77,51 @@
             font-size: 1em;
             opacity: 0.8;
         }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                top: 100%;
+                left: 10%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: -10%;
+                left: 90%;
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="overlay">
-        <h1>🇨🇳 Logovo Nazarchika</h1>
-        <p>Ласкаво просимо на наш сервер!</p>
-        <a class="discord-link" href="https://discord.gg/V5tNASJY" target="_blank">Зайти в Discord</a>
+        <h1>Logovo Nazarchika</h1>
+        <p>Ласкаво просимо на сервер майбутнього!</p>
+
+        <div class="buttons">
+            <a class="btn" href="https://discord.gg/V5tNASJY" target="_blank">Discord</a>
+            <a class="btn" href="#">Вхід на сервер</a>
+            <a class="btn" href="#">Завантажити клієнт</a>
+        </div>
     </div>
 
-    <!-- Автоматична музика -->
+    <!-- Анімована крапка (що "бігає") -->
+    <div class="dot" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="dot" style="left: 50%; animation-delay: 1s;"></div>
+    <div class="dot" style="left: 80%; animation-delay: 2s;"></div>
+
+    <!-- Музика -->
     <audio autoplay loop>
         <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
         Ваш браузер не підтримує відтворення аудіо.
