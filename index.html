@@ -1,105 +1,96 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Логово Назарчика | RUST Сервер</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://imgur.com/a/IsUz1wU') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <title>🇨🇳 Ігровий Сервер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_China.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      min-height: 100vh;
-    }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-top: 1rem;
-      text-shadow: 2px 2px #000;
-      animation: pulse 2s infinite;
-    }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            animation: glow 2s infinite alternate;
+        }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
 
-    .btn {
-      background: #00ff88;
-      color: #000;
-      padding: 1rem 2rem;
-      border: none;
-      font-size: 1.2em;
-      margin: 1rem;
-      cursor: pointer;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px red, 0 0 20px yellow;
+            }
+            to {
+                text-shadow: 0 0 20px yellow, 0 0 30px red;
+            }
+        }
 
-    .btn:hover {
-      background: #00cc66;
-    }
+        .discord-link {
+            background-color: #7289DA;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
 
-    iframe {
-      margin-top: 2rem;
-      width: 350px;
-      height: 500px;
-      border: none;
-    }
+        .discord-link:hover {
+            background-color: #5b6eae;
+            transform: scale(1.1);
+        }
 
-    .rust-info {
-      margin-top: 2rem;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 12px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .gif {
-      margin-top: 2rem;
-      max-width: 400px;
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 0 20px black;
-    }
-  </style>
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>ЛОГОВО НАЗАРЧИКА</h1>
-    <p>Це наш Discord, де ми граємо в RUST, рофлимо і живемо як дикі рейдери!</p>
-    <button class="btn" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">Залетіти в Discord</button>
-
-    <div class="rust-info">
-      <h2>Про нас:</h2>
-      <ul style="text-align: left; max-width: 600px; margin: auto;">
-        <li>Щоденні рейди та пвп</li>
-        <li>Стрілки в Расті — на повному скілі</li>
-        <li>Своя атмосфера і ржач</li>
-        <li>Голосові, меми, вистріли і братва</li>
-        <li>Сайт — як серце нашого логова</li>
-      </ul>
+    <div class="overlay">
+        <h1>🇨🇳 Вітаємо на сервері!</h1>
+        <p>Тут починається твоя епічна пригода</p>
+        <a class="discord-link" href="https://discord.gg/V5tNASJY" target="_blank">Приєднатись до Discord</a>
     </div>
 
-    <img class="gif" src="https://media.tenor.com/GuAUkHGRdpUAAAAC/rust-game.gif" alt="Rust gameplay gif">
+    <!-- Музика -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-epic.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує відтворення аудіо.
+    </audio>
 
-    <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </div>
-
-  <audio id="bgm" autoplay loop>
-    <source src="https://files.catbox.moe/5p3nlz.mp3" type="audio/mp3">
-    Твій браузер не підтримує звук.
-  </audio>
+    <div class="footer">
+        🚀 Зроблено Пашом Адвокатом © 2025
+    </div>
 </body>
 </html>
