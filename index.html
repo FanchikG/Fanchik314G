@@ -16,7 +16,7 @@
       background-size: cover;
       font-family: 'Orbitron', sans-serif;
       overflow: hidden;
-      cursor: crosshair;
+      cursor: url('https://cur.cursors-4u.net/anime/ani-12/ani1153.cur'), auto;
     }
     .overlay {
       position: absolute;
@@ -99,6 +99,18 @@
       pointer-events: none;
       z-index: 0;
     }
+    .spark {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      border-radius: 50%;
+      animation: fly 3s linear infinite;
+    }
+    @keyframes fly {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(100vw, -100vh); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -118,6 +130,7 @@
       <button class="btn" onclick="document.body.style.backgroundColor = 'darkred'">ЗМІНИ ТЕМУ</button>
       <button class="btn" onclick="alert('Секретне повідомлення: заходь частіше!')">СЕКРЕТ</button>
       <button class="btn" onclick="document.body.style.transform = 'rotate(1deg)'">ПОХИЛИТИ ВСЕ</button>
+      <button class="btn" onclick="generateSpark()">💥 ЕФЕКТ</button>
     </div>
   </div>
 
@@ -126,7 +139,6 @@
   </audio>
 
   <script>
-    // Countdown Timer
     function updateCountdown() {
       const targetDate = new Date('Jan 1, 2026 00:00:00').getTime();
       const now = new Date().getTime();
@@ -140,7 +152,6 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Canvas effects
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -174,6 +185,15 @@
       requestAnimationFrame(draw);
     }
     draw();
+
+    function generateSpark() {
+      const spark = document.createElement('div');
+      spark.classList.add('spark');
+      spark.style.left = Math.random() * window.innerWidth + 'px';
+      spark.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 3000);
+    }
   </script>
 </body>
 </html>
