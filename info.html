@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Логово Назарчика</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-color: #111;
+      --text-color: #fff;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .btn {
+      background: #00ff88;
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      font-size: 1.2em;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00cc66;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    iframe {
+      border: none;
+      width: 350px;
+      height: 500px;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle" onclick="toggleTheme()">🌓 Змінити тему</div>
+
+  <h1>ЛОГОВО НАЗАРЧИКА</h1>
+  <p>Тут тусуються брати, граємо в <strong>RUST</strong>, балакаємо і валимо рейди!</p>
+
+  <button class="btn" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">Залетіти в Discord</button>
+
+  <br><br>
+
+  <iframe src="https://discord.com/widget?id=123456789012345678&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+  <audio id="bgm" src="https://files.catbox.moe/u7dddc.mp3" autoplay loop></audio>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const isDark = getComputedStyle(root).getPropertyValue('--bg-color') === '#111';
+      root.style.setProperty('--bg-color', isDark ? '#fefefe' : '#111');
+      root.style.setProperty('--text-color', isDark ? '#111' : '#fff');
+    }
+
+    // Скрімер через 20 секунд
+    setTimeout(() => {
+      const img = new Image();
+      img.src = "https://media.tenor.com/1cvqUqzXY0gAAAAC/skibidi-jumpscare.gif";
+      img.style = "position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;";
+      document.body.appendChild(img);
+
+      const scream = new Audio("https://www.myinstants.com/media/sounds/scream.mp3");
+      scream.play();
+    }, 20000);
+  </script>
+</body>
+</html>
