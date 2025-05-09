@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>LOGOVO NAZARCHIKA</title>
+    <title>💀 ULTRA RUST DISCORD 🔥</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -24,7 +24,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
+            background: rgba(0,0,0,0.7);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -35,9 +35,9 @@
         }
 
         h1 {
-            font-size: 5em;
-            text-shadow: 0 0 25px red;
-            background: linear-gradient(45deg, yellow, red, yellow);
+            font-size: 6em;
+            text-shadow: 0 0 25px red, 0 0 50px yellow;
+            background: linear-gradient(45deg, yellow, red, orange, yellow);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: blink 1s infinite alternate;
@@ -73,16 +73,6 @@
         @keyframes shoot {
             0% { left: 0; }
             100% { left: 100vw; }
-        }
-
-        .custom-cursor {
-            width: 32px;
-            height: 32px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Windows_10_cursor.png') no-repeat center;
-            background-size: contain;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
         }
 
         .flashing-box {
@@ -141,44 +131,45 @@
                 opacity: 0;
             }
         }
+
+        .custom-cursor {
+            width: 32px;
+            height: 32px;
+            background: url('https://cdn-icons-png.flaticon.com/512/32/32195.png') no-repeat center;
+            background-size: cover;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
 
 <div class="overlay">
-    <h1>🇨🇳 LOGOVO NAZARCHIKA 🇨🇳</h1>
-    <p>🌐 Discord: <a href="https://discord.gg/V5tNASJY" target="_blank" style="color: #ff0;">Натисни сюди</a></p>
+    <h1>LOGOVO NAZARCHIKA</h1>
+    <p>🔗 <a href="https://discord.gg/V5tNASJY" target="_blank" style="color: yellow; font-size: 1.5em; text-decoration: none;">Join Discord</a></p>
 </div>
 
-<!-- Фонові частинки -->
 <div class="particles" id="particles"></div>
 
-<!-- Літаючі тексти -->
-<div class="text-fly" style="animation-delay: 0s;">РАСТ 🔥</div>
-<div class="text-fly" style="animation-delay: 2s; color: red;">ДИСКОРД 📢</div>
-<div class="text-fly" style="animation-delay: 4s; color: white;">LOGOVO 🇨🇳</div>
+<div class="text-fly" style="animation-delay: 0s;">🔥 RUST FOREVER 🔥</div>
+<div class="text-fly" style="animation-delay: 3s; color: red;">💬 Чат • Мемасики • Спільнота 💬</div>
+<div class="text-fly" style="animation-delay: 6s; color: white;">💻 Хардкод + Discord = сила 💻</div>
 
-<!-- Лазери -->
-<div class="laser" style="top: 20%;"></div>
-<div class="laser" style="top: 60%; animation-delay: 1s;"></div>
+<div class="laser" style="top: 25%;"></div>
+<div class="laser" style="top: 75%; animation-delay: 1s;"></div>
 
-<!-- Спалахи -->
-<div class="flashing-box" style="top: 20%; left: 10%;"></div>
-<div class="flashing-box" style="top: 60%; left: 80%;"></div>
+<div class="flashing-box" style="top: 10%; left: 10%;"></div>
+<div class="flashing-box" style="top: 70%; left: 80%;"></div>
 
-<!-- Кастомний курсор -->
 <div class="custom-cursor" id="cursor"></div>
 
-<!-- Музика -->
 <audio autoplay loop>
     <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
 </audio>
 
-<div class="footer">
-    Зроблено ✨ Пашом Адвокатом ✨ — Discord Rust Server
-</div>
+<div class="footer">✨ Пашо Адвокат ✨ — Ultra Discord Rust Server 2025</div>
 
-<!-- JS: курсор + частинки -->
 <script>
     // Курсор
     const cursor = document.getElementById('cursor');
