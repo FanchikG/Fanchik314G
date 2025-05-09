@@ -12,85 +12,81 @@
     }
     html, body {
       height: 100%;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
-      background-size: cover;
       font-family: 'Orbitron', sans-serif;
       overflow: hidden;
       cursor: url('https://cur.cursors-4u.net/anime/ani-12/ani1153.cur'), auto;
+    }
+    body {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
+      background-size: cover;
     }
     .overlay {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 2;
       color: white;
       text-align: center;
+      z-index: 2;
     }
     h1 {
-      font-size: 5em;
-      background: linear-gradient(45deg, yellow, red, orange, yellow);
+      font-size: 6em;
+      background: linear-gradient(45deg, red, yellow, orange);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: glowText 2s ease-in-out infinite alternate;
     }
     @keyframes glowText {
-      from { text-shadow: 0 0 10px red; }
-      to { text-shadow: 0 0 30px yellow; }
+      from { text-shadow: 0 0 15px red, 0 0 25px yellow; }
+      to { text-shadow: 0 0 25px orange, 0 0 50px red; }
     }
     .btn {
-      padding: 15px 30px;
+      padding: 20px 40px;
       font-size: 2em;
-      margin: 10px;
-      border: 2px solid #fff;
-      border-radius: 10px;
-      background-color: rgba(255, 0, 0, 0.6);
+      border: 2px solid white;
+      border-radius: 15px;
+      background: rgba(255, 0, 0, 0.6);
       color: white;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: 0.3s;
+      margin-top: 30px;
     }
     .btn:hover {
-      transform: scale(1.1);
-      background-color: yellow;
+      background: yellow;
       color: black;
-    }
-    .rainbow-text {
-      animation: rainbow 3s infinite linear;
-    }
-    @keyframes rainbow {
-      0% { color: red; }
-      20% { color: orange; }
-      40% { color: yellow; }
-      60% { color: green; }
-      80% { color: blue; }
-      100% { color: violet; }
+      transform: scale(1.1);
     }
     .marquee {
       position: absolute;
-      top: 0;
+      top: 10px;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
+      font-size: 2em;
+      color: yellow;
     }
     .marquee span {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 20s linear infinite;
-      font-size: 2em;
-      color: yellow;
+      animation: marquee 15s linear infinite;
     }
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    .countdown {
-      font-size: 2em;
-      margin-top: 2em;
+    .falling-chinese {
+      position: absolute;
+      font-size: 4em;
       color: red;
+      animation: fall 5s infinite linear;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100%); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
     }
     canvas {
       position: fixed;
@@ -98,30 +94,6 @@
       left: 0;
       pointer-events: none;
       z-index: 0;
-    }
-    .spark {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: yellow;
-      border-radius: 50%;
-      animation: fly 3s linear infinite;
-    }
-    @keyframes fly {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(100vw, -100vh); opacity: 0; }
-    }
-
-    .falling-chinese {
-      position: absolute;
-      top: 0;
-      font-size: 3em;
-      color: red;
-      animation: fall 4s linear infinite;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100vh); }
     }
   </style>
 </head>
@@ -133,50 +105,16 @@
   </div>
 
   <div class="overlay">
-    <h1 class="rainbow-text">LOGOVO NAZARCHIKA</h1>
-    <p>
-      <button class="btn" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🔗 Зайти в Discord</button>
-    </p>
-    <div class="countdown" id="countdown"></div>
-    <div>
-      <button class="btn" onclick="document.body.style.backgroundColor = 'darkred'">ЗМІНИ ТЕМУ</button>
-      <button class="btn" onclick="alert('Секретне повідомлення: заходь частіше!')">СЕКРЕТ</button>
-      <button class="btn" onclick="document.body.style.transform = 'rotate(1deg)'">ПОХИЛИТИ ВСЕ</button>
-      <button class="btn" onclick="generateSpark()">💥 ЕФЕКТ</button>
-      <button class="btn" onclick="toggleMusic()">🔊 ВКЛ/ВИКЛ ЗВУК</button>
-    </div>
+    <h1>LOGOVO NAZARCHIKA</h1>
+    <button class="btn" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🔗 Зайти в Discord</button>
   </div>
 
-  <audio id="background-music" autoplay loop>
+  <audio autoplay loop>
     <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    let musicPlaying = true;
-
-    function toggleMusic() {
-      const audio = document.getElementById('background-music');
-      if (musicPlaying) {
-        audio.pause();
-      } else {
-        audio.play();
-      }
-      musicPlaying = !musicPlaying;
-    }
-
-    function updateCountdown() {
-      const targetDate = new Date('Jan 1, 2026 00:00:00').getTime();
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      document.getElementById("countdown").innerText = `${days}д ${hours}г ${minutes}хв ${seconds}с до 2026!`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
+    // Canvas animation
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -211,16 +149,7 @@
     }
     draw();
 
-    function generateSpark() {
-      const spark = document.createElement('div');
-      spark.classList.add('spark');
-      spark.style.left = Math.random() * window.innerWidth + 'px';
-      spark.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(spark);
-      setTimeout(() => spark.remove(), 3000);
-    }
-
-    // Create falling Chinese characters
+    // Falling Chinese characters
     function createFallingChinese() {
       const characters = ['汉', '字', '中', '国', '喜', '庆'];
       for (let i = 0; i < 10; i++) {
@@ -230,7 +159,7 @@
         char.innerText = characters[Math.floor(Math.random() * characters.length)];
         document.body.appendChild(char);
 
-        setTimeout(() => char.remove(), 4000);
+        setTimeout(() => char.remove(), 5000);
       }
     }
     setInterval(createFallingChinese, 1000);
