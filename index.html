@@ -1,176 +1,177 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>💀 ULTRA RUST DISCORD 🔥</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body {
-            height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Orbitron', sans-serif;
-            overflow: hidden;
-            cursor: none;
-        }
-        .overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            color: white;
-            text-align: center;
-        }
-        h1 {
-            font-size: 6em;
-            text-shadow: 0 0 25px red, 0 0 50px yellow;
-            background: linear-gradient(45deg, yellow, red, orange, yellow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: blink 1s infinite alternate;
-        }
-        @keyframes blink {
-            from { opacity: 1; }
-            to { opacity: 0.6; }
-        }
-        .text-fly {
-            position: absolute;
-            top: -10%;
-            font-size: 2em;
-            white-space: nowrap;
-            color: yellow;
-            animation: flyText 10s linear infinite;
-        }
-        @keyframes flyText {
-            0% { top: 100%; left: -30%; transform: rotate(-20deg); }
-            100% { top: -10%; left: 120%; transform: rotate(20deg); }
-        }
-        .laser {
-            position: absolute;
-            width: 2px;
-            height: 100vh;
-            background: red;
-            animation: shoot 2s linear infinite;
-        }
-        @keyframes shoot {
-            0% { left: 0; }
-            100% { left: 100vw; }
-        }
-        .flashing-box {
-            width: 100px;
-            height: 100px;
-            background: red;
-            animation: flash 0.3s infinite alternate;
-            position: absolute;
-        }
-        @keyframes flash {
-            0% { background: red; box-shadow: 0 0 10px yellow; }
-            100% { background: yellow; box-shadow: 0 0 20px red; }
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            color: white;
-            text-align: center;
-            font-size: 1.2em;
-            z-index: 3;
-        }
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .particle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: yellow;
-            border-radius: 50%;
-            animation: float 8s linear infinite;
-            opacity: 0.4;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-10vh); opacity: 0; }
-        }
-        .custom-cursor {
-            width: 32px;
-            height: 32px;
-            background: url('https://cdn-icons-png.flaticon.com/512/32/32195.png') no-repeat center;
-            background-size: cover;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        .explosion {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, red, yellow, white);
-            border-radius: 50%;
-            animation: explode 1s linear infinite;
-            opacity: 0.6;
-        }
-        @keyframes explode {
-            0% { transform: scale(0.5); opacity: 1; }
-            100% { transform: scale(3); opacity: 0; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>💀 ULTRA RUST DISCORD 🔥</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+      cursor: crosshair;
+    }
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      font-size: 5em;
+      background: linear-gradient(45deg, yellow, red, orange, yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px red; }
+      to { text-shadow: 0 0 30px yellow; }
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 2em;
+      margin: 10px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background-color: rgba(255, 0, 0, 0.6);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+      background-color: yellow;
+      color: black;
+    }
+    .rainbow-text {
+      animation: rainbow 3s infinite linear;
+    }
+    @keyframes rainbow {
+      0% { color: red; }
+      20% { color: orange; }
+      40% { color: yellow; }
+      60% { color: green; }
+      80% { color: blue; }
+      100% { color: violet; }
+    }
+    .marquee {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+      font-size: 2em;
+      color: yellow;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .countdown {
+      font-size: 2em;
+      margin-top: 2em;
+      color: red;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
-<div class="overlay">
-    <h1>LOGOVO NAZARCHIKA</h1>
-    <p>🔗 <a href="https://discord.gg/V5tNASJY" target="_blank" style="color: yellow; font-size: 1.5em; text-decoration: none;">Join Discord</a></p>
-</div>
-<div class="particles" id="particles"></div>
-<div class="text-fly" style="animation-delay: 0s;">🔥 RUST FOREVER 🔥</div>
-<div class="text-fly" style="animation-delay: 3s; color: red;">💬 Чат • Мемасики • Спільнота 💬</div>
-<div class="text-fly" style="animation-delay: 6s; color: white;">💻 Хардкод + Discord = сила 💻</div>
-<div class="laser" style="top: 25%;"></div>
-<div class="laser" style="top: 75%; animation-delay: 1s;"></div>
-<div class="flashing-box" style="top: 10%; left: 10%;"></div>
-<div class="flashing-box" style="top: 70%; left: 80%;"></div>
-<div class="custom-cursor" id="cursor"></div>
-<audio autoplay loop>
+  <canvas id="canvas"></canvas>
+
+  <div class="marquee">
+    <span>⚠️ УВАГА! ВИ УВІЙШЛИ В СЕКРЕТНЕ ЛОГОВО НАZАРЧИКА ⚠️</span>
+  </div>
+
+  <div class="overlay">
+    <h1 class="rainbow-text">LOGOVO NAZARCHIKA</h1>
+    <p><a href="https://discord.gg/V5tNASJY" target="_blank" style="font-size: 1.5em; color: yellow; text-decoration: none;">🔗 Join Discord</a></p>
+    <div class="countdown" id="countdown"></div>
+    <div>
+      <button class="btn" onclick="alert('Слава Україні!')">СЛАВА</button>
+      <button class="btn" onclick="alert('Працює!')">ПЕРЕВІРКА</button>
+      <button class="btn" onclick="alert('ПІШЛИ В Discord!')">ЗАЛІТАЙ</button>
+    </div>
+  </div>
+
+  <audio autoplay loop>
     <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
-</audio>
-<div class="footer">✨ Пашо Адвокат ✨ — Ultra Discord Rust Server 2025</div>
-<script>
-    const cursor = document.getElementById('cursor');
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.pageX + 'px';
-        cursor.style.top = e.pageY + 'px';
-    });
-    const particleContainer = document.getElementById('particles');
-    for (let i = 0; i < 200; i++) {
-        let p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = Math.random() * 100 + 'vw';
-        p.style.animationDelay = (Math.random() * 8) + 's';
-        p.style.width = p.style.height = (Math.random() * 5 + 2) + 'px';
-        particleContainer.appendChild(p);
+  </audio>
+
+  <script>
+    // Countdown Timer
+    function updateCountdown() {
+      const targetDate = new Date('Jan 1, 2026 00:00:00').getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerText = `${days}д ${hours}г ${minutes}хв ${seconds}с до 2026!`;
     }
-    // Додаткові вибухи
-    setInterval(() => {
-        let explosion = document.createElement('div');
-        explosion.className = 'explosion';
-        explosion.style.top = Math.random() * 90 + 'vh';
-        explosion.style.left = Math.random() * 90 + 'vw';
-        document.body.appendChild(explosion);
-        setTimeout(() => explosion.remove(), 1000);
-    }, 500);
-</script>
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Canvas effects
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 3 + 1,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
 </body>
 </html>
