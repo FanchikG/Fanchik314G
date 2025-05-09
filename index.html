@@ -17,7 +17,7 @@
 
         .overlay {
             position: relative;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.6);
             height: 100%;
             width: 100%;
             display: flex;
@@ -25,31 +25,82 @@
             justify-content: center;
             flex-direction: column;
             text-align: center;
+            z-index: 2;
         }
 
         h1 {
             font-size: 4em;
-            background: linear-gradient(90deg, red, orange, yellow, red);
-            background-size: 300% auto;
+            background: linear-gradient(90deg, red, yellow, red);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientMove 4s linear infinite;
-            text-shadow: 0 0 10px red, 0 0 20px yellow;
-            margin: 0;
+            animation: shimmer 4s linear infinite;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px red;
         }
 
-        @keyframes gradientMove {
+        @keyframes shimmer {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
 
-        p {
-            font-size: 1.5em;
-            color: #ffcc00;
-            text-shadow: 0 0 5px red;
-            margin-top: 10px;
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 3;
         }
 
+        .btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px yellow;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 0, 0.2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::after {
+            transform: scaleX(1);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+            color: white;
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        /* Частинки */
         .particles {
             position: absolute;
             width: 100%;
@@ -57,17 +108,17 @@
             top: 0;
             left: 0;
             overflow: hidden;
-            z-index: 0;
+            z-index: 1;
         }
 
         .particle {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: yellow;
             border-radius: 50%;
-            animation: floatUp 10s linear infinite;
-            opacity: 0.5;
+            animation: floatUp 12s linear infinite;
+            opacity: 0.4;
         }
 
         @keyframes floatUp {
@@ -83,42 +134,35 @@
                 opacity: 0;
             }
         }
-
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 1em;
-            color: white;
-            opacity: 0.7;
-            z-index: 2;
-        }
     </style>
 </head>
 <body>
     <div class="overlay">
         <h1>🇨🇳 Logovo Nazarchika</h1>
-        <p>Ніхто не пройде повз...</p>
+
+        <div class="button-container">
+            <a class="btn" href="https://discord.gg/V5tNASJY" target="_blank">🔗 Увійти в Discord</a>
+            <a class="btn" href="minecraft://127.0.0.1">🎮 Вхід на сервер</a>
+            <a class="btn" href="https://example.com/client.zip">⬇️ Завантажити клієнт</a>
+        </div>
     </div>
 
     <div class="particles">
-        <!-- 30 частинок -->
         <script>
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 50; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'particle';
                 dot.style.left = Math.random() * 100 + 'vw';
-                dot.style.animationDelay = (Math.random() * 10) + 's';
-                dot.style.width = dot.style.height = (Math.random() * 8 + 4) + 'px';
+                dot.style.animationDelay = (Math.random() * 12) + 's';
+                dot.style.width = dot.style.height = (Math.random() * 6 + 3) + 'px';
                 document.querySelector('.particles').appendChild(dot);
             }
         </script>
     </div>
 
-    <div class="footer">Зроблено Пашом Адвокатом © 2025</div>
+    <div class="footer">🚀 Зроблено Пашом Адвокатом © 2025</div>
 
-    <!-- Автовідтворення музики -->
+    <!-- Музика -->
     <audio autoplay loop>
         <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
         Ваш браузер не підтримує відтворення аудіо.
