@@ -15,7 +15,7 @@
       height: 100%;
       font-family: 'Orbitron', sans-serif;
       overflow: hidden;
-      cursor: url('https://cur.cursors-4u.net/anime/ani-12/ani1153.cur'), auto;
+      cursor: none; /* Сховаємо стандартний курсор */
     }
     body {
       background: black;
@@ -124,6 +124,28 @@
       color: yellow;
       text-shadow: 0 0 10px red, 0 0 20px yellow;
     }
+
+    /* Custom Cursor */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: red;
+      pointer-events: none;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease-in-out;
+    }
+    .cursor-hover {
+      width: 40px;
+      height: 40px;
+      background: yellow;
+    }
+    .cursor-active {
+      background: orange;
+      transform: scale(0.8) translate(-50%, -50%);
+    }
   </style>
 </head>
 <body>
@@ -168,6 +190,31 @@
     }
     setInterval(generateChineseSymbol, 500);
 
+    // Custom cursor
+    const cursor = document.createElement('div');
+    cursor.classList.add('cursor');
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.pageX}px`;
+      cursor.style.top = `${e.pageY}px`;
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.classList.add('cursor-hover');
+    });
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor-hover');
+    });
+
+    document.querySelectorAll('.btn').forEach((btn) => {
+      btn.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor-active');
+      });
+      btn.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-active');
+      });
+    });
   </script>
 </body>
 </html>
