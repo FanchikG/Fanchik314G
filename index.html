@@ -54,11 +54,13 @@
       cursor: pointer;
       transition: 0.3s;
       margin-top: 30px;
+      opacity: 0.8;
     }
     .btn:hover {
       background: yellow;
       color: black;
-      transform: scale(1.1);
+      transform: scale(1.2);
+      opacity: 1;
     }
     .marquee {
       position: absolute;
@@ -87,6 +89,19 @@
     @keyframes fall {
       0% { transform: translateY(-100%); opacity: 1; }
       100% { transform: translateY(100vh); opacity: 0; }
+    }
+    .spark {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: orange;
+      border-radius: 50%;
+      animation: sparkFly 1s infinite;
+    }
+    @keyframes sparkFly {
+      0% { transform: translateY(0) scale(0.5); opacity: 1; }
+      50% { transform: translateY(100px) scale(1); opacity: 0.7; }
+      100% { transform: translateY(200px) scale(1.5); opacity: 0; }
     }
     canvas {
       position: fixed;
@@ -163,6 +178,18 @@
       }
     }
     setInterval(createFallingChinese, 1000);
+
+    // Spark effect
+    function createSpark() {
+      const spark = document.createElement('div');
+      spark.classList.add('spark');
+      spark.style.left = Math.random() * window.innerWidth + 'px';
+      spark.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 1500);
+    }
+
+    setInterval(createSpark, 200); // Generate sparks every 200ms
   </script>
 </body>
 </html>
