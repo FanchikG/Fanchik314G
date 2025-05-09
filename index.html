@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>💀 ULTRA RUST DISCORD 🔥</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -17,8 +18,17 @@
       cursor: url('https://cur.cursors-4u.net/anime/ani-12/ani1153.cur'), auto;
     }
     body {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
-      background-size: cover;
+      background: black;
+      overflow: hidden;
+    }
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
     .overlay {
       position: absolute;
@@ -31,36 +41,52 @@
       justify-content: center;
       color: white;
       text-align: center;
-      z-index: 2;
+      z-index: 1;
     }
     h1 {
       font-size: 6em;
       background: linear-gradient(45deg, red, yellow, orange);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glowText 2s ease-in-out infinite alternate;
+      color: transparent;
+      text-shadow: 0 0 10px yellow, 0 0 20px red;
+      animation: glow 2s infinite alternate;
+      transform: perspective(500px) rotateX(20deg);
     }
-    @keyframes glowText {
-      from { text-shadow: 0 0 15px red, 0 0 25px yellow; }
-      to { text-shadow: 0 0 25px orange, 0 0 50px red; }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px red, 0 0 20px yellow; }
+      to { text-shadow: 0 0 20px orange, 0 0 30px yellow; }
     }
     .btn {
-      padding: 20px 40px;
+      padding: 15px 30px;
       font-size: 2em;
-      border: 2px solid white;
-      border-radius: 15px;
-      background: rgba(255, 0, 0, 0.6);
+      margin: 10px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background-color: rgba(255, 0, 0, 0.6);
       color: white;
       cursor: pointer;
-      transition: 0.3s;
-      margin-top: 30px;
-      opacity: 0.8;
+      transition: all 0.3s;
+      text-transform: uppercase;
     }
     .btn:hover {
-      background: yellow;
-      color: black;
       transform: scale(1.2);
-      opacity: 1;
+      background-color: yellow;
+      color: black;
+      box-shadow: 0 0 15px yellow, 0 0 30px red;
+    }
+    .btn:active {
+      transform: scale(0.95);
+    }
+    .rainbow-text {
+      animation: rainbow 3s infinite linear;
+    }
+    @keyframes rainbow {
+      0% { color: red; }
+      20% { color: orange; }
+      40% { color: yellow; }
+      60% { color: green; }
+      80% { color: blue; }
+      100% { color: purple; }
     }
     .marquee {
       position: absolute;
@@ -68,13 +94,13 @@
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
-      font-size: 2em;
-      color: yellow;
     }
     .marquee span {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 15s linear infinite;
+      animation: marquee 20s linear infinite;
+      font-size: 2em;
+      color: yellow;
     }
     @keyframes marquee {
       0% { transform: translateX(0); }
@@ -82,114 +108,66 @@
     }
     .falling-chinese {
       position: absolute;
-      font-size: 4em;
-      color: red;
+      top: 0;
+      left: 50%;
+      font-size: 2em;
+      color: green;
       animation: fall 5s infinite linear;
     }
     @keyframes fall {
-      0% { transform: translateY(-100%); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
     }
-    .spark {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: orange;
-      border-radius: 50%;
-      animation: sparkFly 1s infinite;
-    }
-    @keyframes sparkFly {
-      0% { transform: translateY(0) scale(0.5); opacity: 1; }
-      50% { transform: translateY(100px) scale(1); opacity: 0.7; }
-      100% { transform: translateY(200px) scale(1.5); opacity: 0; }
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 0;
+    .countdown {
+      font-size: 2em;
+      margin-top: 20px;
+      color: yellow;
+      text-shadow: 0 0 10px red, 0 0 20px yellow;
     }
   </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
-
-  <div class="marquee">
-    <span>⚠️ УВАГА! ВИ УВІЙШЛИ В СЕКРЕТНЕ ЛОГОВО НАZАРЧИКА ⚠️</span>
-  </div>
+  <video autoplay loop muted>
+    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+  </video>
 
   <div class="overlay">
-    <h1>LOGOVO NAZARCHIKA</h1>
+    <h1 class="rainbow-text">LOGOVO NAZARCHIKA</h1>
+    <div class="marquee">
+      <span>⚠️ УВАГА! ВИ УВІЙШЛИ В СЕКРЕТНЕ ЛОГОВО НАZАРЧИКА ⚠️</span>
+    </div>
     <button class="btn" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🔗 Зайти в Discord</button>
+    <div class="countdown" id="countdown"></div>
   </div>
 
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/3n8k3t.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
-    // Canvas animation
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 3 + 1,
-        dx: (Math.random() - 0.5) * 2,
-        dy: (Math.random() - 0.5) * 2
-      });
+    // Countdown function
+    function updateCountdown() {
+      const targetDate = new Date('Jan 1, 2026 00:00:00').getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerText = `${days} д ${hours} г ${minutes} хв ${seconds} с до 2026!`;
     }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,255,255,0.8)';
-        ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      }
-      requestAnimationFrame(draw);
+    // Falling Chinese symbols effect
+    function generateChineseSymbol() {
+      const symbols = ['中', '国', '人', '民', '共', '和', '国'];
+      const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      const div = document.createElement('div');
+      div.classList.add('falling-chinese');
+      div.style.left = Math.random() * 100 + 'vw';
+      div.innerText = symbol;
+      document.body.appendChild(div);
+      setTimeout(() => div.remove(), 5000);
     }
-    draw();
+    setInterval(generateChineseSymbol, 500);
 
-    // Falling Chinese characters
-    function createFallingChinese() {
-      const characters = ['汉', '字', '中', '国', '喜', '庆'];
-      for (let i = 0; i < 10; i++) {
-        const char = document.createElement('div');
-        char.classList.add('falling-chinese');
-        char.style.left = Math.random() * 100 + 'vw';
-        char.innerText = characters[Math.floor(Math.random() * characters.length)];
-        document.body.appendChild(char);
-
-        setTimeout(() => char.remove(), 5000);
-      }
-    }
-    setInterval(createFallingChinese, 1000);
-
-    // Spark effect
-    function createSpark() {
-      const spark = document.createElement('div');
-      spark.classList.add('spark');
-      spark.style.left = Math.random() * window.innerWidth + 'px';
-      spark.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(spark);
-      setTimeout(() => spark.remove(), 1500);
-    }
-
-    setInterval(createSpark, 200); // Generate sparks every 200ms
   </script>
 </body>
 </html>
