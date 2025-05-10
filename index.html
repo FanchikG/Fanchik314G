@@ -14,11 +14,30 @@
     html, body {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://i.pinimg.com/originals/fd/b6/23/fdb623b1766f59278f71f21361f46e17.gif') no-repeat center center fixed;
+      background: url('https://i.gifer.com/7VE.gif') no-repeat center center fixed;
       background-size: cover;
       color: white;
       overflow: hidden;
       cursor: url('https://cur.cursors-4u.net/others/oth-8/oth743.cur'), auto;
+    }
+    .intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      font-size: 2em;
+      animation: fadeOut 3s ease-in-out forwards;
+      animation-delay: 3s;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
     .container {
       position: relative;
@@ -90,6 +109,11 @@
   </style>
 </head>
 <body>
+  <div class="intro">Добро пожаловать в мир Fanchik314G...</div>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/12/10/audio_09d5a5fbe2.mp3" type="audio/mp3">
+    Ваш браузер не поддерживает воспроизведение аудио.
+  </audio>
   <div class="container">
     <h1>Fanchik314G</h1>
     <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
