@@ -14,8 +14,7 @@
     html, body {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://i.gifer.com/7VE.gif') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(120deg, #1a001f, #0d001a);
       color: white;
       overflow: hidden;
       cursor: url('https://cur.cursors-4u.net/others/oth-8/oth743.cur'), auto;
@@ -47,31 +46,31 @@
     }
     h1 {
       font-size: 4em;
-      margin-bottom: 20px;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #009999;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #ff66cc, #cc00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s infinite alternate;
     }
-    .visitor-count {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #ffcc00;
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff66cc; }
+      to { text-shadow: 0 0 20px #cc00ff; }
     }
     .btn {
       padding: 15px 40px;
       font-size: 1.5em;
-      background-color: #ff6666;
+      background: linear-gradient(135deg, #ff66cc, #cc00ff);
       border: none;
-      border-radius: 15px;
+      border-radius: 10px;
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
       margin: 10px;
-      box-shadow: 0 0 10px #ff6666;
+      box-shadow: 0 0 10px #ff66cc;
     }
     .btn:hover {
-      background-color: #ff3333;
       transform: scale(1.1);
-      box-shadow: 0 0 20px #ff6666;
+      box-shadow: 0 0 25px #cc00ff;
     }
     .side-panel {
       position: absolute;
@@ -81,7 +80,7 @@
       padding: 20px;
       border-radius: 10px;
       font-size: 1.2em;
-      box-shadow: 0 0 10px #000;
+      box-shadow: 0 0 10px #ff66cc;
       display: none;
     }
     .left-panel {
@@ -97,6 +96,15 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #ff66cc;
+      box-shadow: 0 0 25px #cc00ff;
+      margin: 20px auto;
+      display: block;
     }
     .floating {
       position: absolute;
@@ -119,9 +127,9 @@
     <source src="https://cdn.pixabay.com/audio/2022/12/10/audio_09d5a5fbe2.mp3" type="audio/mp3">
     Ваш браузер не поддерживает воспроизведение аудио.
   </audio>
+  <img src="https://i.imgur.com/siJA9iW.jpeg" alt="Аватарка" class="avatar">
   <div class="container">
     <h1>Fanchik314G</h1>
-    <div class="visitor-count">Посетителей: <span id="visitor-count">загрузка...</span></div>
     <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
     <br><br>
     <button class="btn" onclick="toggleRightPanel()">🕶️ Показать послание</button>
@@ -145,17 +153,6 @@
       const panel = document.getElementById('leftPanel');
       panel.classList.toggle('visible');
     }
-
-    // Заглушка для счетчика (локально, не сохраняется)
-    const countKey = 'visitor-count-local';
-    let visits = localStorage.getItem(countKey);
-    if (!visits) {
-      visits = 1;
-    } else {
-      visits = parseInt(visits) + 1;
-    }
-    localStorage.setItem(countKey, visits);
-    document.getElementById('visitor-count').innerText = visits;
   </script>
 </body>
 </html>
