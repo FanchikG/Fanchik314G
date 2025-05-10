@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,16 @@
     html, body {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      overflow: hidden;
     }
     .container {
+      position: relative;
+      z-index: 1;
       text-align: center;
+      margin-top: 10%;
     }
     h1 {
       font-size: 4em;
@@ -45,12 +47,48 @@
       transform: scale(1.1);
       box-shadow: 0 0 20px #00ffcc;
     }
+    .side-panel {
+      position: absolute;
+      top: 20%;
+      width: 300px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      box-shadow: 0 0 10px #000;
+    }
+    .left-panel {
+      left: 20px;
+    }
+    .right-panel {
+      right: 20px;
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Fanchik314G</h1>
-    <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моє біо</button>
+    <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
+    <br><br>
+    <button class="btn" onclick="toggleRightPanel()">🕶️ Показать послание</button>
   </div>
+  <div class="side-panel left-panel">
+    Живу в Украине...
+  </div>
+  <div class="side-panel right-panel" id="rightPanel">
+    Тишина знает моё имя.<br>
+    Тьма помнит мои шаги.<br>
+    Ты не увидишь меня, но почувствуешь присутствие.
+  </div>
+  <script>
+    function toggleRightPanel() {
+      const panel = document.getElementById('rightPanel');
+      panel.classList.toggle('visible');
+    }
+  </script>
 </body>
 </html>
