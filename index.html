@@ -78,19 +78,6 @@
       margin: 20px auto;
       display: block;
     }
-    .floating {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2em;
-      color: rgba(255,255,255,0.05);
-      animation: floatText 10s linear infinite;
-    }
-    @keyframes floatText {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
     .bio-container {
       position: absolute;
       bottom: 30px;
@@ -98,12 +85,6 @@
       text-align: center;
       font-size: 1.5em;
       color: #ff66cc;
-    }
-    .floating-text {
-      color: #ffffff;
-      font-size: 1.2em;
-      margin-top: 20px;
-      animation: floatText 20s linear infinite;
     }
   </style>
 </head>
@@ -119,9 +100,8 @@
     <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
   </div>
   <div class="bio-container">
-    <p class="floating-text">Я живу в Украине и занимаюсь программированием.</p>
-    <p class="floating-text">Тишина знает моё имя. Тьма помнит мои шаги. Ты не увидишь меня, но почувствуешь присутствие.</p>
+    <p>Я живу в Украине и занимаюсь программированием.</p>
+    <p>Тишина знает моё имя. Тьма помнит мои шаги. Ты не увидишь меня, но почувствуешь присутствие.</p>
   </div>
-  <div class="floating">Fanchik314G</div>
 </body>
 </html>
