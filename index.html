@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💀 ULTRA RUST DISCORD 🔥</title>
+  <title>🌟 Fanchik314G 🌟</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,194 +14,43 @@
     html, body {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
-      overflow: hidden;
-      cursor: none; /* Сховаємо стандартний курсор */
-    }
-    body {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1920px-Flag_of_the_People%27s_Republic_of_China.svg.png') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
       text-align: center;
-      z-index: 1;
     }
     h1 {
-      font-size: 6em;
-      background: linear-gradient(45deg, red, yellow, orange);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 10px yellow, 0 0 20px red;
-      animation: glow 2s infinite alternate;
-      transform: perspective(500px) rotateX(20deg);
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px red, 0 0 20px yellow; }
-      to { text-shadow: 0 0 20px orange, 0 0 30px yellow; }
+      font-size: 4em;
+      margin-bottom: 40px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #009999;
     }
     .btn {
-      padding: 15px 30px;
-      font-size: 2em;
-      margin: 10px;
-      border: 2px solid #fff;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      background-color: #00ffcc;
+      border: none;
       border-radius: 10px;
-      background-color: rgba(255, 0, 0, 0.6);
-      color: white;
+      color: black;
       cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
+      transition: all 0.3s ease;
     }
     .btn:hover {
-      transform: scale(1.2);
-      background-color: yellow;
-      color: black;
-      box-shadow: 0 0 15px yellow, 0 0 30px red;
-    }
-    .btn:active {
-      transform: scale(0.95);
-    }
-    .rainbow-text {
-      animation: rainbow 3s infinite linear;
-    }
-    @keyframes rainbow {
-      0% { color: red; }
-      20% { color: orange; }
-      40% { color: yellow; }
-      60% { color: green; }
-      80% { color: blue; }
-      100% { color: purple; }
-    }
-    .marquee {
-      position: absolute;
-      top: 10px;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 20s linear infinite;
-      font-size: 2em;
-      color: yellow;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-    .falling-chinese {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      font-size: 2em;
-      color: green;
-      animation: fall 5s infinite linear;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100vh); }
-    }
-    .countdown {
-      font-size: 2em;
-      margin-top: 20px;
-      color: yellow;
-      text-shadow: 0 0 10px red, 0 0 20px yellow;
-    }
-
-    /* Custom Cursor */
-    .cursor {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: red;
-      pointer-events: none;
-      z-index: 999;
-      transform: translate(-50%, -50%);
-      transition: all 0.1s ease-in-out;
-    }
-    .cursor-hover {
-      width: 40px;
-      height: 40px;
-      background: yellow;
-    }
-    .cursor-active {
-      background: orange;
-      transform: scale(0.8) translate(-50%, -50%);
+      background-color: #009999;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ffcc;
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1 class="rainbow-text">LOGOVO NAZARCHIKA</h1>
-    <div class="marquee">
-      <span>⚠️ УВАГА! ВИ УВІЙШЛИ В СЕКРЕТНЕ ЛОГОВО НАZАРЧИКА ⚠️</span>
-    </div>
-    <button class="btn" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🔗 Зайти в Discord</button>
-    <div class="countdown" id="countdown"></div>
+  <div class="container">
+    <h1>Fanchik314G</h1>
+    <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моє біо</button>
   </div>
-
-  <script>
-    // Countdown function
-    function updateCountdown() {
-      const targetDate = new Date('Jan 1, 2026 00:00:00').getTime();
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      document.getElementById("countdown").innerText = `${days} д ${hours} г ${minutes} хв ${seconds} с до 2026!`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Falling Chinese symbols effect
-    function generateChineseSymbol() {
-      const symbols = ['中', '国', '人', '民', '共', '和', '国'];
-      const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-      const div = document.createElement('div');
-      div.classList.add('falling-chinese');
-      div.style.left = Math.random() * 100 + 'vw';
-      div.innerText = symbol;
-      document.body.appendChild(div);
-      setTimeout(() => div.remove(), 5000);
-    }
-    setInterval(generateChineseSymbol, 500);
-
-    // Custom cursor
-    const cursor = document.createElement('div');
-    cursor.classList.add('cursor');
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = `${e.pageX}px`;
-      cursor.style.top = `${e.pageY}px`;
-    });
-
-    document.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor-hover');
-    });
-    document.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor-hover');
-    });
-
-    document.querySelectorAll('.btn').forEach((btn) => {
-      btn.addEventListener('mouseenter', () => {
-        cursor.classList.add('cursor-active');
-      });
-      btn.addEventListener('mouseleave', () => {
-        cursor.classList.remove('cursor-active');
-      });
-    });
-  </script>
 </body>
 </html>
