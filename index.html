@@ -69,26 +69,20 @@
       transform: scale(1.1);
       box-shadow: 0 0 25px #cc00ff;
     }
-    .side-panel {
-      position: absolute;
-      top: 20%;
-      width: 300px;
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
+    .discord-btn {
+      padding: 15px 40px;
+      font-size: 1.5em;
+      background: #7289da;
+      border: none;
       border-radius: 10px;
-      font-size: 1.2em;
-      box-shadow: 0 0 10px #ff66cc;
-      display: none;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px;
     }
-    .left-panel { left: 20px; }
-    .right-panel { right: 20px; }
-    .visible {
-      display: block;
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .discord-btn:hover {
+      transform: scale(1.1);
+      background: #5b6eae;
     }
     .avatar {
       width: 150px;
@@ -99,18 +93,27 @@
       margin: 20px auto;
       display: block;
     }
-    .floating {
+    .floating-text {
       position: absolute;
-      top: 50%;
+      top: 30%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       font-size: 2em;
-      color: rgba(255,255,255,0.05);
-      animation: floatText 10s linear infinite;
+      animation: floatText 5s ease-in-out infinite;
+      color: rgba(255, 255, 255, 0.5);
     }
     @keyframes floatText {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
+      0% { opacity: 0; transform: translateY(0px); }
+      50% { opacity: 1; transform: translateY(-20px); }
+      100% { opacity: 0; transform: translateY(0px); }
+    }
+    .pulse {
+      animation: pulseAnimation 1.5s infinite;
+    }
+    @keyframes pulseAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
@@ -123,30 +126,10 @@
   <img src="https://i.imgur.com/siJA9iW.jpeg" alt="Аватарка" class="avatar">
   <div class="container">
     <h1>Fanchik314G</h1>
-    <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
+    <button class="btn pulse" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
     <br><br>
-    <button class="btn" onclick="toggleRightPanel()">🕶️ Показать послание</button>
-    <button class="btn" onclick="toggleLeftPanel()">🌍 Где я живу?</button>
-    <iframe src="https://lanyard-profile-readme.vercel.app/api/1295647806245310525" width="420" height="180" style="border:0;border-radius:10px;margin-top:30px;"></iframe>
+    <button class="discord-btn pulse" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🎮 Присоединиться к Discord</button>
   </div>
-  <div class="side-panel left-panel" id="leftPanel">
-    Живу в Украине — гордый, свободный и независимый. Мечтаю оставить след в цифровом мире, где технологии и стиль объединяются.
-  </div>
-  <div class="side-panel right-panel" id="rightPanel">
-    Тишина знает моё имя.<br>
-    Тьма помнит мои шаги.<br>
-    Ты не увидишь меня, но почувствуешь присутствие.
-  </div>
-  <div class="floating">Fanchik314G</div>
-  <script>
-    function toggleRightPanel() {
-      const panel = document.getElementById('rightPanel');
-      panel.classList.toggle('visible');
-    }
-    function toggleLeftPanel() {
-      const panel = document.getElementById('leftPanel');
-      panel.classList.toggle('visible');
-    }
-  </script>
+  <div class="floating-text">Тишина знает моё имя, а Тьма помнит мои шаги...</div>
 </body>
 </html>
