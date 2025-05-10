@@ -129,7 +129,27 @@
     <button class="btn pulse" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
     <br><br>
     <button class="discord-btn pulse" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🎮 Присоединиться к Discord</button>
+    <br><br>
+    <button class="btn pulse" onclick="showQuote()">🖤 Тёмная цитата</button>
+    <button class="discord-btn pulse" onclick="showLocation()">🇺🇦 Где я живу?</button>
   </div>
-  <div class="floating-text">Тишина знает моё имя, а Тьма помнит мои шаги...</div>
+  <div class="floating-text" id="quoteText"></div>
+  <div class="floating-text" id="locationText"></div>
+
+  <script>
+    function showQuote() {
+      const quote = "Тишина знает моё имя. Тьма помнит мои шаги.";
+      document.getElementById('quoteText').innerText = quote;
+      document.getElementById('quoteText').style.animation = 'floatText 5s ease-in-out infinite';
+      document.getElementById('quoteText').style.color = 'white';
+    }
+
+    function showLocation() {
+      const location = "Я живу в Украине — гордый, свободный и независимый.";
+      document.getElementById('locationText').innerText = location;
+      document.getElementById('locationText').style.animation = 'floatText 5s ease-in-out infinite';
+      document.getElementById('locationText').style.color = 'white';
+    }
+  </script>
 </body>
 </html>
