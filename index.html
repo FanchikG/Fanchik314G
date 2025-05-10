@@ -10,7 +10,7 @@
     html, body {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://i.pinimg.com/originals/41/f6/fb/41f6fb8ae60a8693e0d460efdc5aa742.gif') no-repeat center center fixed;
+      background: url('https://i.imgur.com/Z9glw5z.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
       overflow: hidden;
@@ -22,7 +22,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.95);
+      background-color: rgba(0, 0, 0, 0.85);
       color: white;
       display: flex;
       justify-content: center;
@@ -91,6 +91,20 @@
       0% { transform: translate(-50%, -50%) rotate(0deg); }
       100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
+    .bio-container {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      color: #ff66cc;
+    }
+    .floating-text {
+      color: #ffffff;
+      font-size: 1.2em;
+      margin-top: 20px;
+      animation: floatText 20s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -103,6 +117,10 @@
   <div class="container">
     <h1>Fanchik314G</h1>
     <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
+  </div>
+  <div class="bio-container">
+    <p class="floating-text">Я живу в Украине и занимаюсь программированием.</p>
+    <p class="floating-text">Тишина знает моё имя. Тьма помнит мои шаги. Ты не увидишь меня, но почувствуешь присутствие.</p>
   </div>
   <div class="floating">Fanchik314G</div>
 </body>
