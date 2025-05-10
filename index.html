@@ -101,6 +101,8 @@
       font-size: 2em;
       animation: floatText 5s ease-in-out infinite;
       color: rgba(255, 255, 255, 0.5);
+      display: none; /* Initially hidden */
+      opacity: 0;
     }
     @keyframes floatText {
       0% { opacity: 0; transform: translateY(0px); }
@@ -126,29 +128,27 @@
   <img src="https://i.imgur.com/siJA9iW.jpeg" alt="Аватарка" class="avatar">
   <div class="container">
     <h1>Fanchik314G</h1>
-    <button class="btn pulse" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
+    <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
     <br><br>
-    <button class="discord-btn pulse" onclick="window.open('https://discord.gg/V5tNASJY', '_blank')">🎮 Присоединиться к Discord</button>
-    <br><br>
-    <button class="btn pulse" onclick="showQuote()">🖤 Тёмная цитата</button>
-    <button class="discord-btn pulse" onclick="showLocation()">🇺🇦 Где я живу?</button>
+    <button class="btn" onclick="toggleRightPanel()">🕶️ Показать послание</button>
+    <button class="btn" onclick="toggleLeftPanel()">🌍 Где я живу?</button>
   </div>
-  <div class="floating-text" id="quoteText"></div>
-  <div class="floating-text" id="locationText"></div>
+  <div class="side-panel left-panel" id="leftPanel">
+    <div class="floating-text">Живу в Украине — гордый, свободный и независимый. Мечтаю оставить след в цифровом мире, где технологии и стиль объединяются.</div>
+  </div>
+  <div class="side-panel right-panel" id="rightPanel">
+    <div class="floating-text">Тишина знает моё имя.<br>Тьма помнит мои шаги.<br>Ты не увидишь меня, но почувствуешь присутствие.</div>
+  </div>
+  <div class="floating">Fanchik314G</div>
 
   <script>
-    function showQuote() {
-      const quote = "Тишина знает моё имя. Тьма помнит мои шаги.";
-      document.getElementById('quoteText').innerText = quote;
-      document.getElementById('quoteText').style.animation = 'floatText 5s ease-in-out infinite';
-      document.getElementById('quoteText').style.color = 'white';
+    function toggleRightPanel() {
+      const panel = document.getElementById('rightPanel');
+      panel.classList.toggle('visible');
     }
-
-    function showLocation() {
-      const location = "Я живу в Украине — гордый, свободный и независимый.";
-      document.getElementById('locationText').innerText = location;
-      document.getElementById('locationText').style.animation = 'floatText 5s ease-in-out infinite';
-      document.getElementById('locationText').style.color = 'white';
+    function toggleLeftPanel() {
+      const panel = document.getElementById('leftPanel');
+      panel.classList.toggle('visible');
     }
   </script>
 </body>
