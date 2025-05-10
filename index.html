@@ -47,9 +47,14 @@
     }
     h1 {
       font-size: 4em;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       color: #00ffcc;
       text-shadow: 0 0 10px #00ffcc, 0 0 20px #009999;
+    }
+    .visitor-count {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #ffcc00;
     }
     .btn {
       padding: 15px 40px;
@@ -116,6 +121,7 @@
   </audio>
   <div class="container">
     <h1>Fanchik314G</h1>
+    <div class="visitor-count">Посетителей: <span id="visitor-count">загрузка...</span></div>
     <button class="btn" onclick="window.open('https://guns.lol/Fanchik314G', '_blank')">🔗 Моё био</button>
     <br><br>
     <button class="btn" onclick="toggleRightPanel()">🕶️ Показать послание</button>
@@ -139,6 +145,17 @@
       const panel = document.getElementById('leftPanel');
       panel.classList.toggle('visible');
     }
+
+    // Заглушка для счетчика (локально, не сохраняется)
+    const countKey = 'visitor-count-local';
+    let visits = localStorage.getItem(countKey);
+    if (!visits) {
+      visits = 1;
+    } else {
+      visits = parseInt(visits) + 1;
+    }
+    localStorage.setItem(countKey, visits);
+    document.getElementById('visitor-count').innerText = visits;
   </script>
 </body>
 </html>
